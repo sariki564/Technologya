@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .person {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+            width: 200px;
+            cursor: pointer;
+        }
+        .person:hover {
+            background-color: lightgray;
+        }
+        .details {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+            width: 300px;
+            margin: 20px auto;
+            text-align: left;
+        }
+        .details img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .back-btn {
+            display: block;
+            margin-top: 20px;
+            color: blue;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>People List</h1>
+    </header>
+
+    <div class="container">
+        <div class="person" onclick="showDetails('yousif')">
+            <h2>Muhammad zahid</h2>
+        </div>
+        <div class="person" onclick="showDetails('ilyas')">
+            <h2>Muhammad Ilyas</h2>
+        </div>
+        <div class="person" onclick="showDetails('murshid')">
+            <h2>Murshid Abdullah</h2>
+        </div>
+        <div class="person" onclick="showDetails('zahid')">
+            <h2>yousif machi</h2>
+        </div>
+        <div class="person" onclick="showDetails('huzaifa')">
+            <h2>Huzaifa Talpur</h2>
+        </div>
+    </div>
+
+    <div class="details" id="details">
+        <img id="person-img" src="" alt="">
+        <h2 id="person-name"></h2>
+        <p><strong>Work:</strong> <span id="person-work"></span></p>
+        <p><strong>Nickname:</strong> <span id="person-nickname"></span></p>
+        <p><strong>Age:</strong> <span id="person-age"></span></p>
+        <p><strong>Location:</strong> <span id="person-location"></span></p>
+        <a class="back-btn" onclick="hideDetails()">Back to List</a>
+    </div>
+
+    <script>
+        const people = {
+            yousif: {
+                name: "Muhammad Yousif",
+                work: "Professional Editor",
+                nickname: "Shana",
+                age: "18",
+                location: "Kot Chutta",
+                img: "https://via.placeholder.com/100"
+            },
+            ilyas: {
+                name: "Muhammad Ilyas",
+                work: "Professional Editor + Graphic Designer",
+                nickname: "Shanu",
+                age: "16",
+                location: "Kot Chutta",
+                img: "https://via.placeholder.com/100"
+            },
+            murshid: {
+                name: "Murshid Abdullah",
+                work: "Business",
+                nickname: "Murshid",
+                age: "20",
+                location: "Pull Datt DGK",
+                img: "https://via.placeholder.com/100"
+            },
+            zahid: {
+                name: "Zahid Leghari",
+                work: "Graphics Designer",
+                nickname: "Leghari",
+                age: "20",
+                location: "DG Khan",
+                img: "https://via.placeholder.com/100"
+            },
+            huzaifa: {
+                name: "Huzaifa Talpur",
+                work: "CapCut Editor",
+                nickname: "Talpur",
+                age: "18",
+                location: "Choti Zareen",
+                img: "https://via.placeholder.com/100"
+            }
+        };
+
+        function showDetails(person) {
+            document.getElementById("person-name").textContent = people[person].name;
+            document.getElementById("person-work").textContent = people[person].work;
+            document.getElementById("person-nickname").textContent = people[person].nickname;
+            document.getElementById("person-age").textContent = people[person].age;
+            document.getElementById("person-location").textContent = people[person].location;
+            document.getElementById("person-img").src = people[person].img;
+
+            document.querySelector(".container").style.display = "none";
+            document.getElementById("details").style.display = "block";
+        }
+
+        function hideDetails() {
+            document.querySelector(".container").style.display = "flex";
+            document.getElementById("details").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
